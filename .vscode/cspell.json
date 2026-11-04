@@ -1,0 +1,20 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "bootcamp",
+    "CCLA",
+    "choosealicense",
+    "claudecommandssenzingmd",
+    "CODEOWNER",
+    "CODEOWNERS",
+    "cooldown",
+    "esbenp",
+    "ICLA",
+    "kernelsam",
+    "Senzing",
+    "stackoverflow",
+    "zizmor"
+  ],
+  "ignorePaths": [".git/**"]
+}
