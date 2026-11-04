@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "command": "python3 \"${PLUGIN_ROOT}/scripts/copilot-hooks.py\" session-start",
+        "cwd": "."
+      }
+    ],
+    "userPromptSubmitted": [
+      {
+        "type": "command",
+        "command": "python3 \"${PLUGIN_ROOT}/scripts/copilot-hooks.py\" user-prompt",
+        "cwd": "."
+      }
+    ],
+    "preToolUse": [
+      {
+        "type": "command",
+        "command": "python3 \"${PLUGIN_ROOT}/scripts/copilot-hooks.py\" pre-tool",
+        "cwd": "."
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python3 \"${PLUGIN_ROOT}/scripts/copilot-hooks.py\" agent-stop",
+        "cwd": "."
+      }
+    ],
+    "sessionEnd": [
+      {
+        "type": "command",
+        "command": "python3 \"${PLUGIN_ROOT}/scripts/copilot-hooks.py\" session-end",
+        "cwd": "."
+      }
+    ]
+  }
+}
