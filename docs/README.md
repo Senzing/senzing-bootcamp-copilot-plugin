@@ -1,8 +1,8 @@
-# senzing-bootcamp-copilot-plugin
+# Senzing Bootcamp for GitHub Copilot
 
-Placeholder for [GitHub pages].
+The [Copilot quick-start page](index.html) is intended for publication at
+[hub.senzing.com/senzing-bootcamp-copilot-plugin](https://hub.senzing.com/senzing-bootcamp-copilot-plugin/).
 
-See [GitHub page].
-
-[GitHub page]: https://garage.senzing.com/senzing-bootcamp-copilot-plugin
-[GitHub pages]: https://pages.github.com/
+Keep the installation steps aligned with the public plugin manifest and marketplace catalog.
+The page distinguishes Copilot CLI test evidence from unverified GitHub Copilot app runtime
+behavior; update that status only when a corresponding host test has been recorded.

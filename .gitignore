@@ -3,6 +3,7 @@
 # Visual Studio code
 .vscode/*
 !.vscode/cspell.json
+!.vscode/cspell-bootcamp.txt
 !.vscode/settings.json
 *.code-workspace
 .history

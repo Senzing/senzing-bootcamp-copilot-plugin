@@ -16,5 +16,13 @@
     "stackoverflow",
     "zizmor"
   ],
+  "dictionaryDefinitions": [
+    {
+      "name": "senzing-bootcamp",
+      "path": "./cspell-bootcamp.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": ["senzing-bootcamp"],
   "ignorePaths": [".git/**"]
 }
