@@ -209,8 +209,8 @@ This includes how to report a suspected vulnerability.
 │   └── workflows
 │       ├── README.md
 │       ├── add-labels-standardized.yaml
-│       ├── add-to-project-garage-dependabot.yaml
-│       ├── add-to-project-garage.yaml
+│       ├── add-to-project-senzing-dependabot.yaml
+│       ├── add-to-project-senzing.yaml
 │       ├── claude-pr-review.yaml
 │       ├── dependabot-approve-and-merge.yaml
 │       ├── link-issues-to-pr-post-merge.yaml
@@ -262,7 +262,7 @@ This includes how to report a suspected vulnerability.
 [cspell.json]: #vscodecspelljson
 [cspell]: https://cspell.org/
 [dependabot.yml file]: .github/dependabot.yml
-[dependabot.yml]: githubdependabotyml
+[dependabot.yml]: #githubdependabotyml
 [Directory layout]: #directory-layout
 [docs directory]: docs
 [docs/]: #docs

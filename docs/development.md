@@ -1,1 +1,1 @@
-# template-repository development
+# senzing-bootcamp-copilot-plugin development

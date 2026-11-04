@@ -7,25 +7,12 @@ This project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
-- Thing 6
-- Thing 5
+## [0.0.0] - 2026-11-04
 
-## [1.0.1] - yyyy-mm-dd
+### Added to 0.0.0
 
-### Added to 1.0.1
-
-- Thing 4
-
-### Fixed in 1.0.1
-
-- Thing 3
-
-## [1.0.0] - yyyy-mm-dd
-
-### Added to 1.0.0
-
-- Thing 2
-- Thing 1
+- Initial repository content: community artifacts, GitHub workflows and
+  documentation scaffolding.
 
 [CommonMark]: https://commonmark.org/
 [Keep a Changelog]: https://keepachangelog.com/

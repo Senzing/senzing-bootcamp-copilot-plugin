@@ -94,7 +94,15 @@ cd ${GIT_REPOSITORY_DIR}
 
 ### Coding conventions
 
+Code and documentation are checked on every pull request by
+[super-linter] and [cspell]. Run those checks locally before opening a pull
+request rather than discovering them in CI. Spelling exceptions belong in
+[.vscode/cspell.json], not in a linter suppression.
+
 ### Testing
+
+Add tests alongside the code they cover, and make sure the existing checks on
+the pull request pass before requesting review.
 
 ### Pull Requests
 
@@ -119,3 +127,6 @@ Accepting pull requests will be at the discretion of Senzing, Inc. and the repos
 [Pull Request]: #pull-requests
 [Reporting bugs]: #bug-reporting
 [Requesting features]: #feature-requests
+[super-linter]: https://github.com/super-linter/super-linter
+[cspell]: https://cspell.org/
+[.vscode/cspell.json]: .vscode/cspell.json

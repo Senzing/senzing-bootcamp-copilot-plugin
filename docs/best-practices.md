@@ -1,1 +1,1 @@
-# template-repository best practices
+# senzing-bootcamp-copilot-plugin best practices
