@@ -80,6 +80,14 @@ this action runs [cspell] against the repository.
     - [.vscode/cspell.json]
   - Uses: [senzing-factory/build-resources/.../cspell.yaml]
 
+## validate-marketplace.yaml
+
+On pull requests and pushes to `main`, this model-free workflow validates the
+public marketplace catalog and bundled plugin, then runs the validator's focused
+unit tests. It uses `tools/requirements.txt`; run the same commands from
+[development and validation](../../docs/development.md) before opening a PR.
+It does not certify remote installation or app runtime behavior.
+
 [.checkov.yaml]: ../linters/README.md#checkovyaml
 [.jscpd.json]: ../linters/README.md#jscpdjson
 [.vscode/cspell.json]: ../../.vscode/cspell.json

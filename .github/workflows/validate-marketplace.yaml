@@ -1,0 +1,32 @@
+---
+name: Validate marketplace
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        # actions/checkout v7.0.1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Install validation dependencies
+        run: python3 -m pip install -r tools/requirements.txt
+      - name: Validate public package
+        run: python3 tools/validate_marketplace.py
+      - name: Test validation
+        run: python3 -m unittest discover -s tools/tests -v
