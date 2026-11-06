@@ -83,10 +83,10 @@
                 <li>Open the GitHub Copilot app and sign in.</li>
                 <li>Create or open a project using your new, empty folder.</li>
                 <li>Open <strong>Customize</strong>. Use the <a href="https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app#adding-plugins">marketplace settings control</a> beside the marketplace dropdown to add <code>https://github.com/Senzing/senzing-bootcamp-copilot-plugin</code>.</li>
-                <li>Search for <code>senzing-bootcamp</code> (Senzing Bootcamp) in Customize and click <strong>Install</strong>. The actual display name remains to be verified.</li>
+                <li>Search for <code>senzing-bootcamp</code> (displayed as <code>senzing-bootcamp</code>, version 0.6.1) in Customize and click <strong>Install</strong>.</li>
                 <li>Open <strong>Installed</strong> and make sure the plugin is enabled.</li>
               </ol>
-              <p class="callout"><strong>Published; app verification pending:</strong> the public catalog and payload are available. Remote CLI lifecycle checks passed; app installation and runtime checks remain unverified under <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7">issue #7</a>. If the marketplace is unavailable, check authentication, repository access, client support, and organization policy. Do not bypass managed restrictions.</p>
+              <p class="callout"><strong>Published; app verification partial:</strong> remote CLI lifecycle checks passed. Copilot app 1.1.35 installation, management, live MCP, one module, and same-checkout resume were observed, but a secret-like write was not blocked and several required checks remain unrun. See the <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/blob/main/docs/test-records/0.6.1.md">test record</a>; <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7">issue #7</a> remains open. If the marketplace is unavailable, check authentication, repository access, client support, and organization policy. Do not bypass managed restrictions.</p>
             </article>
             <article class="card" id="cli">
               <p class="card__kind">Terminal setup</p>
@@ -158,7 +158,7 @@ copilot plugin marketplace remove senzing-bootcamp</code></pre>
           </div>
           <div class="callout callout--notice">
             <h3>Client support status</h3>
-            <p>Installation and runtime support are different checks. The <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/blob/main/docs/test-records/0.6.1.md">0.6.1 test record</a> covers the remote CLI marketplace lifecycle on CLI 1.0.105, Ubuntu 24.04.5 LTS; its update check was same-version only. Actual app controls, skills, MCP, lifecycle hooks, and persistence remain unverified under <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7">issue #7</a>. Do not infer app compatibility from a successful install, or assume CLI configuration is shared with the app. Other client versions and OSes remain unverified.</p>
+            <p>Installation and runtime support are different checks. The <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/blob/main/docs/test-records/0.6.1.md">0.6.1 test record</a> covers the remote CLI lifecycle and selected Copilot app 1.1.35 checks on Ubuntu 24.04.5 LTS. The app run found a secret-like write the hook did not block; skill invocation coverage, exact hook-root diagnostics, stop/session-end behavior, checkpoint fallback, and a changed-version update remain incomplete. <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7">Issue #7</a> remains open. Do not infer app compatibility from a successful install, or assume CLI configuration is shared with the app. Other client versions and OSes remain unverified.</p>
           </div>
           <div class="callout">
             <h3>Model and effort</h3>
