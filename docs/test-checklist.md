@@ -60,6 +60,7 @@ row passing from a static script test or a different client.
    Restore only test-owned settings; do not remove pre-existing user resources.
 
 Record each required check as passed, failed, unsupported, blocked, or unrun.
-Keep issues #7 and #5 open while any required check has not passed. Publish only
-sanitized observations; never include credentials, private transcripts, or real
-sensitive data.
+Keep parent issue #5 open while any required check has not passed. Issue #7 was
+closed before all checks passed; do not treat closure as acceptance evidence or
+reopen it without authorization. Publish only sanitized observations; never
+include credentials, private transcripts, or real sensitive data.

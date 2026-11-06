@@ -17,11 +17,15 @@ The [0.6.1 test record](docs/test-records/0.6.1.md) records remote marketplace
 installation and management with CLI 1.0.105 on Ubuntu 24.04.5 LTS.
 The update check used the same published version, not a changed-version upgrade.
 Selected installation, management, MCP, module, and same-checkout resume flows
-were also observed in Copilot app 1.1.35; the app test found an unblocked
-secret-like write and several required checks remain unrun. [Issue
-#7](https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7) remains
-open. Neither CLI installation nor partial app testing certifies all skills,
-hooks, write guards, or app compatibility.
+were also observed in Copilot app 1.1.35. An initial secret-like write check
+failed on an earlier revision; after the merged hook fix, synthetic write
+probes on `9d72e36` were allowed or denied as intended. Several required checks
+remain unrun. [Issue
+#7](https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7) was
+closed before those checks were complete; the parent [issue
+#5](https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/5)
+remains open. Neither CLI installation nor partial app testing certifies all
+skills, hooks, write guards, or app compatibility.
 
 You need:
 
@@ -47,8 +51,8 @@ Do not grant access beyond what you intend to use.
 5. Open **Installed** and confirm the plugin is enabled.
 
 These are [GitHub's documented app controls](https://docs.github.com/en/copilot/how-tos/github-copilot-app/customize-github-copilot-app#adding-a-plugin-marketplace).
-Actual display names, update/removal controls, and runtime behavior remain
-unverified until #7 records them. Manage the app's activation under
+The observed display name and selected runtime results are in the test record;
+some app checks remain incomplete. Manage the app's activation under
 **Customize → Installed**; do not assume CLI commands manage the app configuration.
 
 ## Install through the CLI marketplace
@@ -106,8 +110,10 @@ enabled, start a new session, check `python3 --version`, and verify access to
 `mcp.senzing.com`. Installation, activation, skills, MCP, and lifecycle hooks are
 separate checks. Do not treat successful installation as runtime certification.
 
-The app's tested version/OS and limitations will be recorded in #7. The existing
-checkpoint fallback remains in place; automatic pre-compaction is not configured.
+The [test record](docs/test-records/0.6.1.md) documents the tested app version/OS
+and limitations. Issue #7 is closed, but app acceptance remains incomplete and
+parent issue #5 remains open. The checkpoint fallback remains in place;
+automatic pre-compaction is not configured.
 This is a Senzing Garage project, not a production-readiness guarantee.
 
 ## Maintain the marketplace
