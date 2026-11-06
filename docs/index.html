@@ -86,12 +86,12 @@
                 <li>Search for <code>senzing-bootcamp</code> (Senzing Bootcamp) in Customize and click <strong>Install</strong>. The actual display name remains to be verified.</li>
                 <li>Open <strong>Installed</strong> and make sure the plugin is enabled.</li>
               </ol>
-              <p class="callout"><strong>Publication and verification pending:</strong> the catalog and payload must be on the default branch before remote installation works. <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/6">Issue #6</a> tracks publication and <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7">issue #7</a> tracks remote installation and app runtime checks. If the marketplace is unavailable, check publication, authentication, repository access, client support, and organization policy. Do not bypass managed restrictions.</p>
+              <p class="callout"><strong>Published; app verification pending:</strong> the public catalog and payload are available. Remote CLI lifecycle checks passed; app installation and runtime checks remain unverified under <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7">issue #7</a>. If the marketplace is unavailable, check authentication, repository access, client support, and organization policy. Do not bypass managed restrictions.</p>
             </article>
             <article class="card" id="cli">
               <p class="card__kind">Terminal setup</p>
               <h3>Copilot CLI</h3>
-              <p>After publication, add the public marketplace and install its plugin using the <a href="https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference">Copilot CLI plugin commands</a>:</p>
+              <p>Add the public marketplace and install its plugin using the <a href="https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference">Copilot CLI plugin commands</a>:</p>
               <div class="cmd">
                 <p class="cmd__label">Terminal</p>
                 <pre><code>copilot plugin marketplace add Senzing/senzing-bootcamp-copilot-plugin
@@ -158,7 +158,7 @@ copilot plugin marketplace remove senzing-bootcamp</code></pre>
           </div>
           <div class="callout callout--notice">
             <h3>Client support status</h3>
-            <p>Installation and runtime support are different checks. Existing development evidence covers CLI, not this public marketplace or the app. Actual app controls, skills, MCP, lifecycle hooks, and persistence remain unverified under <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7">issue #7</a>. Do not infer app compatibility from a successful install, or assume CLI configuration is shared with the app.</p>
+            <p>Installation and runtime support are different checks. The <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/blob/main/docs/test-records/0.6.1.md">0.6.1 test record</a> covers the remote CLI marketplace lifecycle on CLI 1.0.105, Ubuntu 24.04.5 LTS; its update check was same-version only. Actual app controls, skills, MCP, lifecycle hooks, and persistence remain unverified under <a href="https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7">issue #7</a>. Do not infer app compatibility from a successful install, or assume CLI configuration is shared with the app. Other client versions and OSes remain unverified.</p>
           </div>
           <div class="callout">
             <h3>Model and effort</h3>
