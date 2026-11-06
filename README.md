@@ -11,14 +11,17 @@ This repository hosts both the Copilot plugin and its public marketplace catalog
 The marketplace name is `senzing-bootcamp`; its plugin identifier is
 `senzing-bootcamp@senzing-bootcamp`.
 
-**Published; remote CLI lifecycle verified; app runtime verification pending.**
+**Published; remote CLI lifecycle verified; app runtime verification partial.**
 The catalog and payload are on this repository's default branch.
 The [0.6.1 test record](docs/test-records/0.6.1.md) records remote marketplace
 installation and management with CLI 1.0.105 on Ubuntu 24.04.5 LTS.
 The update check used the same published version, not a changed-version upgrade.
-[Issue #7](https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7)
-remains open for app installation, management, and runtime verification.
-CLI installation does not certify skills, MCP, hooks, or app compatibility.
+Selected installation, management, MCP, module, and same-checkout resume flows
+were also observed in Copilot app 1.1.35; the app test found an unblocked
+secret-like write and several required checks remain unrun. [Issue
+#7](https://github.com/Senzing/senzing-bootcamp-copilot-plugin/issues/7) remains
+open. Neither CLI installation nor partial app testing certifies all skills,
+hooks, write guards, or app compatibility.
 
 You need:
 
