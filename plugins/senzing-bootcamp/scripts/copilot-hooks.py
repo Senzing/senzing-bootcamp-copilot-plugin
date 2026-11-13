@@ -8,6 +8,7 @@ import re
 import subprocess
 import sys
 import time
+from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 from typing import Any
 
@@ -39,6 +40,22 @@ def _run(script: str, payload: dict[str, Any] | None = None) -> subprocess.Compl
     )
 
 
+def _bootcamp_complete() -> bool:
+    helper_path = PLUGIN_ROOT / "scripts" / "module_start_apparatus.py"
+    spec = spec_from_file_location("copilot_module_start_apparatus", helper_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Could not load completion helper: {helper_path}")
+    helper = module_from_spec(spec)
+    spec.loader.exec_module(helper)
+    predicate = getattr(helper, "bootcamp_complete", None)
+    if not callable(predicate):
+        raise RuntimeError(f"Completion helper has no bootcamp_complete(): {helper_path}")
+    result = predicate()
+    if not isinstance(result, bool):
+        raise RuntimeError(f"Completion helper returned a non-boolean result: {helper_path}")
+    return result
+
+
 def _additional_context(result: subprocess.CompletedProcess[str]) -> str:
     if result.returncode:
         raise RuntimeError(result.stderr.strip() or f"hook helper exited {result.returncode}")
@@ -67,7 +84,11 @@ def user_prompt() -> None:
     if "prompt" not in payload and "user_prompt" in payload:
         payload["prompt"] = payload["user_prompt"]
     contexts = []
-    for helper in ("feedback-capture.py", "checkpoint-tick.py"):
+    helpers = ("feedback-capture.py",) if _bootcamp_complete() else (
+        "feedback-capture.py",
+        "checkpoint-tick.py",
+    )
+    for helper in helpers:
         context = _additional_context(_run(helper, payload))
         if context:
             contexts.append(context)
@@ -201,6 +222,8 @@ def _has_clean_closing_question(message: str) -> bool:
     if sum(line.count("👉") for line in lines) != 1:
         return False
     question_line = next(index for index, line in enumerate(lines) if "👉" in line)
+    if "?" not in lines[question_line].split("👉", 1)[1]:
+        return False
     trailing = lines[question_line + 1:]
     nonempty = [line for line in trailing if line.strip()]
     if not nonempty:
@@ -221,10 +244,7 @@ def agent_stop() -> None:
         return
     if not (Path.cwd() / "config/bootcamp_progress.json").is_file():
         return
-    preferences = Path.cwd() / "config/bootcamp_preferences.yaml"
-    if preferences.is_file() and "bootcamp_complete: true" in preferences.read_text(
-        encoding="utf-8", errors="replace"
-    ).lower():
+    if _bootcamp_complete():
         return
     last_message = payload.get("last_assistant_message") or payload.get("lastAssistantMessage")
     if not isinstance(last_message, str):
@@ -246,11 +266,14 @@ def agent_stop() -> None:
     print(json.dumps({
         "decision": "block",
         "reason": (
-            "A bootcamp is active. Review your last message. It must end with exactly one 👉 "
-            "closing question, followed only by its numbered answer options if any. Remove any "
-            "post-question narration; do not repeat the question. If no question is pending, only "
-            "when you have finished a bootcamp step and are yielding, add its prescribed question. "
-            "Add nothing mid-step or after bootcamp completion."
+            "Your last response must end with exactly one 👉 closing question and any "
+            "numbered options it requires. If the module's prescribed question is already "
+            "there but is missing the required format, reformat that existing question in "
+            "place; do not add another question, say that you already asked it, or add "
+            "meta-text. If the prescribed question is not already present, and you just "
+            "finished a step and are yielding, consult the module's skill and ask it once. "
+            "Remove all trailing narration. If you are mid-work or the bootcamp is complete, "
+            "end without a question."
         ),
     }, ensure_ascii=False))
 
