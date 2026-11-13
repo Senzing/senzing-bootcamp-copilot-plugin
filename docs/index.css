@@ -368,13 +368,19 @@ code {
 
 .steps {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
   margin-top: 1rem;
   padding-left: 1.35rem;
 }
 
 .steps li {
+  min-width: 0;
   padding: 0.4rem 0 0.4rem 0.25rem;
+}
+
+.steps .cmd {
+  margin-bottom: 0.75rem;
 }
 
 .steps li::marker {
@@ -399,20 +405,55 @@ code {
   margin-top: 0.5rem;
 }
 
-.callout--notice {
-  border-left-color: #a64b18;
-}
-
-.callout--notice h3 {
-  color: #7d3510;
-}
-
 .cmd {
   position: relative;
   margin-top: 0.85rem;
   border: 1px solid var(--hairline-dark);
   border-radius: 8px;
   background: var(--surface);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.cmd__copy {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--body-dark);
+  cursor: pointer;
+}
+
+.cmd__copy:hover {
+  background: var(--hairline-dark);
+  color: var(--head-dark);
+}
+
+.cmd__copy:focus-visible {
+  outline: 2px solid var(--ember-core);
+  outline-offset: 1px;
+}
+
+.cmd__icon {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 .cmd__label {
@@ -428,7 +469,8 @@ code {
   overflow-x: auto;
   color: var(--head-dark);
   font: 0.83rem/1.6 var(--mono);
-  white-space: pre;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
 }
 
 .cmd code {

@@ -7,6 +7,22 @@ This project adheres to [Semantic Versioning].
 
 ## [Unreleased]
 
+## [0.6.1] - 2026-11-13
+
+### Changed
+
+- Bounded feedback fault attribution to the same sentence as its plugin or bootcamp
+  reference.
+- Made resume guidance end with one 👉 question and numbered options, and clarified
+  `agentStop` repair instructions.
+
+### Fixed
+
+- Prevented ordinary Business Problem resume prompts that mention the plugin from
+  triggering feedback capture.
+- Prevented resume turns from omitting the prescribed closing-question format or adding
+  narration after it.
+
 ## [0.0.0] - 2026-11-04
 
 ### Added to 0.0.0
